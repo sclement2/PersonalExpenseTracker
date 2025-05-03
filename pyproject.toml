@@ -1,7 +1,7 @@
 [project]
 name = "expense_tracker"
 version = "0.1.0"
-description = "Simple personal expense tracker"
+description = "A simple personal expense tracker"
 authors = [
     { name="Robert Scott Clement", email="sclement2@gmail.com" }
 ]
@@ -13,7 +13,10 @@ dependencies = []
 tracker-console = "tracker.console_app:main"
 
 [tool.setuptools]
-package-data = { "tracker" = ["data/*.csv"] }
+packages = ["tracker"]
+
+[tool.setuptools.package-data]
+"tracker" = ["data/*.csv"]
 
 [build-system]
 requires = ["setuptools>=61.0"]

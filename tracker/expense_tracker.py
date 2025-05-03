@@ -21,7 +21,6 @@ def get_data_file_path():
 def add_expense(amount, category, description, date=None):
     if date is None or date == "":
         date = datetime.now().strftime("%Y-%m-%d")
-        print(date)
 
     # Validate the expense data
     if validate_expense_data(amount, category, description, date):
@@ -58,13 +57,11 @@ def view_expenses():
             if len(expenses) == 1:
                 print("Invalid expense data found. Please check your entries.")
                 return
-            print(
-                "Invalid expense entry found. Please check your expense entries to make sure they are valid. Skipping invalid entry."
-            )
+            print("Invalid expense entry found. Skipping invalid entry.")
             return
 
         print(
-            f"{expense['amount']:.2f} in {expense['category']} on {expense['date']} with description '{expense['description']}'"
+            f"-{expense['amount']: .2f} in {expense['category']} on {expense['date']} with description '{expense['description']}'"
         )
 
 
