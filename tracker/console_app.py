@@ -10,6 +10,10 @@ from tracker.expense_tracker import (
 )
 
 
+# This is a simple console menu for tracking personal expenses.
+# The console based menu is designed to be user-friendly and provides clear prompts for user input.
+# Each menu option corresponds to a specific function in the expense tracker module.
+# Error handling via the console module and the expense tracker module is performed to ensure that invalid inputs are managed gracefully.
 def menu():
     print("Welcome to the Personal Expense Tracker!")
     while True:
@@ -36,6 +40,13 @@ def menu():
             print("Invalid choice. Please try again.")
 
 
+# Workfkow for adding an expense
+# 1. Prompt user for date (optional)
+# 2. Prompt user for amount using the get_valid_amount function.
+# 3. Prompt user for category (string)
+# 4. Prompt user for description (string)
+# 5. Call add_expense function with the provided data
+# 6. Handle any exceptions that may arise (e.g., invalid data)
 def add_expense_flow():
     print("\n--- Add Expense ---")
     date = input("Enter date (YYYY-MM-DD) or leave blank for today: ")
@@ -48,6 +59,12 @@ def add_expense_flow():
         print(f"Error adding expense: {e}")
 
 
+# Workfkow for getting a valid amount from the user
+# 1. Prompt user for amount
+# 2. Validate that the input is a non-negative number
+# 3. If valid, return the amount
+# 4. If invalid, print an error message and prompt again
+# 5. Repeat until a valid amount is entered
 def get_valid_amount(prompt="Enter amount: "):
     while True:
         try:
@@ -60,6 +77,10 @@ def get_valid_amount(prompt="Enter amount: "):
             print("Invalid input. Please enter a valid non-negative number.")
 
 
+# Workfkow for setting a budget
+# 1. Prompt user for budget
+# 2. Validate that the input is a non-negative number
+# 3. If valid, call set_budget function with the provided budget
 def set_budget_flow():
     budget = input("Enter your budget: ")
     try:

@@ -126,6 +126,9 @@ celerybeat.pid
 # SageMath parsed files
 *.sage.py
 
+# adds .vscode folder to ignored files
+.vscode/**/*
+
 # Environments
 .env
 .venv

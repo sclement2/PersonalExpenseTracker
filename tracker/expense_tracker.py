@@ -18,6 +18,13 @@ def get_data_file_path():
 
 
 # Function to add an expense
+# This function will be called to add an expense to the list.
+# Each expense is represented as a dictionary with keys: date, category, amount, and description.
+# It will validate the input using the validate_expense_data function.
+# If the input is valid, it will append the expense to the expenses list.
+# If the input is invalid, it will raise a ValueError.
+# The function will also handle the case where the date is not provided by using the current date.
+# It will format the date to YYYY-MM-DD format.
 def add_expense(amount, category, description, date=None):
     if date is None or date == "":
         date = datetime.now().strftime("%Y-%m-%d")
@@ -39,6 +46,10 @@ def add_expense(amount, category, description, date=None):
 
 
 # Function to view all expenses
+# This function will be called to display all the expenses in the list.
+# It will iterate through the expenses list and print each expense in a formatted manner.
+# It will also validate the expense data before displaying it.
+# If the data is invalid, it will print an error message and skip that entry.
 def view_expenses():
     if not expenses:
         print("No expenses found.")
@@ -66,6 +77,8 @@ def view_expenses():
 
 
 # Function to validate the expense data
+# This function will be called to validate the expense data before adding it to the list and before displaying it
+# Depending on the entry parameter, it will either raise a ValueError or return False if the data is invalid.
 def validate_expense_data(amount, category, description, date, entry=True):
     # Date validation (YYYY-MM-DD)
     if not re.match(r"^\d{4}-\d{2}-\d{2}$", date):
@@ -95,6 +108,10 @@ def validate_expense_data(amount, category, description, date, entry=True):
 
 
 # Function to set monthly budget
+# This function will be called to set the monthly budget.
+# It will validate the input to ensure it is a positive number.
+# If the input is invalid, it will raise a ValueError.
+# If the input is valid, it will set the budget variable to the specified amount.
 def set_budget(amount):
     global budget
     try:
@@ -109,6 +126,10 @@ def set_budget(amount):
 
 
 # Function to compare expenses with monthly budget
+# This function will be called to check if the expenses exceed the budget.
+# It will calculate the total expenses for the current month and compare it with the budget.
+# If the expenses exceed the budget, it will print a message indicating the excess amount.
+# If the expenses are within the budget, it will print a message indicating the remaining budget.
 def compare_budget():
     total_expenses = get_current_month_expenses()
     if budget == 0:
@@ -123,6 +144,7 @@ def compare_budget():
 
 
 # Function to get total expenses for the current month
+# This function will be used to calculate the total expenses for the current month.
 def get_current_month_expenses():
     current_month = datetime.now().month
     current_year = datetime.now().year
@@ -130,6 +152,9 @@ def get_current_month_expenses():
 
 
 # Function to get the total expenses for a specific month and year
+# This function will be used to calculate the total expenses for a specific month and year.
+# It will filter the expenses list based on the month and year provided.
+# It will return the total amount spent in that month.
 def get_expenses_for_month(month, year):
     month_expenses = [
         expense
@@ -142,6 +167,10 @@ def get_expenses_for_month(month, year):
 
 
 # Function to load expenses from a CSV file
+# This function will be called at the start of the program to load any previously saved expenses.
+# It will also clear the existing expenses list to avoid duplicates.
+# Gracefully handle the case where the data is corrupt by using a try-except block.
+# If the file is not found, it will print a message and continue without raising an error.
 def load_expenses_from_csv():
     print("Loading expenses...")
     expenses.clear()  # Clear the existing expenses list
@@ -166,6 +195,8 @@ def load_expenses_from_csv():
 
 
 # Function to save expenses to a CSV file
+# This function will be called when the user chooses to save expenses.
+# It will overwrite the existing file with the current expenses.
 def save_expenses_to_csv():
     with open(get_data_file_path(), mode="w", newline="") as file:
         fieldnames = ["date", "category", "amount", "description"]
