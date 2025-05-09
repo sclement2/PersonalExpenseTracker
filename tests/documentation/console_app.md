@@ -1,5 +1,6 @@
 # tracker/console_app.py
 
+```python
 from tracker.expense_tracker import (
     add_expense,
     view_expenses,
@@ -97,3 +98,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+```
