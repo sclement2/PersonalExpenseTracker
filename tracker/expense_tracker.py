@@ -71,6 +71,9 @@ def view_expenses():
             print("Invalid expense entry found. Skipping invalid entry.")
             return
 
+        sorted_expenses = sorted(expenses, key=lambda e: e["date"], reverse=True)
+
+    for expense in sorted_expenses:
         print(
             f"-{expense['amount']: .2f} in {expense['category']} on {expense['date']} with description '{expense['description']}'"
         )
