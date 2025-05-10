@@ -176,3 +176,4 @@ cython_debug/
 .pypirc
 documentation/images/*.png
 documentation/RunningTheProgram.md
+documentation/RepositoryInfo.md

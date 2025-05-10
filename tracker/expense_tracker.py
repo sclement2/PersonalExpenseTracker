@@ -47,6 +47,7 @@ def add_expense(amount, category, description, date=None):
 
 # Function to view all expenses
 # This function will be called to display all the expenses in the list.
+# It will sort the expenses by date in descending order (most recent first).
 # It will iterate through the expenses list and print each expense in a formatted manner.
 # It will also validate the expense data before displaying it.
 # If the data is invalid, it will print an error message and skip that entry.
